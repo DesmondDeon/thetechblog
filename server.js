@@ -7,7 +7,7 @@ const sequelize = require('./config/connection')
 
 // Helpers
 const helpers = require('./utils/helpers');
-const sessions = require('express-session')
+const session = require('express-session')
 
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ helpers });
@@ -22,9 +22,7 @@ const SequelizeStore = require('connect-session-sequelize')(sessions.Store);
 
 const sess = {
     secret: 'nagato',
-    cookie: {
-        expires: 10 * 60 * 1000
-    },
+    cookie: {},
     resave: true,
     rollings: true,
     saveUninitialized: true,
@@ -33,7 +31,7 @@ const sess = {
     }),
 };
 
-app.use(sessions(sess));
+app.use(session(sess));
 
 // Sets Handlebars as the default template engine 
 // ==========================================================

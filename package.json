@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest --coverage",
     "start": "node server.js",
+    "watch": "nodemon server.js",
     "seeds": "node seeds/index.js"
   },
   "repository": {
@@ -20,10 +21,13 @@
   },
   "homepage": "https://github.com/DesmondDeon/thetechblog#readme",
   "devDependencies": {
-    "jest": "^27.3.1"
+    "@creativebulma/bulma-divider": "^1.1.0",
+    "jest": "^27.3.1",
+    "nodemo": "^1.0.0"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "bulma": "^0.9.3",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
