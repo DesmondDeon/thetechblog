@@ -33,7 +33,7 @@ const sess = {
     }),
 };
 
-app.use(session(sess));
+app.use(sessions(sess));
 
 // Sets Handlebars as the default template engine 
 // ==========================================================
