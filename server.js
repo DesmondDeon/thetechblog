@@ -12,7 +12,8 @@ const sessions = require('express-session')
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ helpers });
 
-// APP and PORT
+// Sets up the Express App
+// ==========================================================
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -33,11 +34,6 @@ const sess = {
 };
 
 app.use(session(sess));
-
-// Sets up the Express App
-// ==========================================================
-const app = express();
-const PORT = process.env.PORT || 3001;
 
 // Sets Handlebars as the default template engine 
 // ==========================================================
