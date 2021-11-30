@@ -57,15 +57,13 @@ router.post('/', (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
-      twitter: req.body.twitter,
-      github: req.body.github
+      
     })
     .then(dbUserData => {
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
-        req.session.twitter = dbUserData.twitter;
-        req.session.github = dbUserData.github;
+        
         req.session.loggedIn = true;
     
         res.json(dbUserData);
@@ -74,7 +72,9 @@ router.post('/', (req, res) => {
   });
 
   // LOGIN
+
   router.post('/login', (req, res) => {
+      console.log(req.body)
     User.findOne({
       where: {
         email: req.body.email
@@ -107,6 +107,7 @@ router.post('/', (req, res) => {
 
 
   router.post('/logout', (req, res) => {
+    console.log(req.session)
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
